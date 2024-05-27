@@ -20,3 +20,6 @@
     2. add file index.html.erb
     3. add code to index.html.erb
 3. make sure views/layout/application.html.erb has <%=yield%>
+# Create User Auth
+1. type command rails generate model User email:string password_digest:string
+2. type command rails db:migrate
