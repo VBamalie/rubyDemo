@@ -1,11 +1,13 @@
 <h1>Sign Up</h1>
-<%
-=begin%>
-  This is a sign up page. form_with is a Rails helper that creates a form tag. It requires a post request and a model. the sign_up_path is a Rails helper that creates a path to the sign up action.
-<%
-=end%>
-<%= form_with model: @User, url: sign_up_path do |form| %>
 
+<%= form_with model: @user, url: sign_up_path do |form| %>
+<% if @user.errors.any? %>
+  <div class="alert alert-danger mt-4">
+        <%= @user.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+        <%end %>
+    </div>
+<%end %>
   <div class="mb-3">
     <%= form.label :email, class: "form-label" %>
     <%= form.text_field :email, placeholder: "Email", class: "form-control" %>
